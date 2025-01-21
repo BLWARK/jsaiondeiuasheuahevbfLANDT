@@ -2,20 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.hero-fullscreen {
+  height: calc(100vh - 80px); /* 100vh dikurangi tinggi Navbar (80px) */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.container {
+  max-width: 1200px;
+  min-width: 300px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem; /* 14px */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: 1024px) {
+  body {
+    font-size: 1rem; /* 16px */
+  }
 }
+
+/* Tambahkan animasi float di globals.css */
+@keyframes float {
+  0% {
+    transform: translateY(0); /* Posisi awal */
+  }
+  50% {
+    transform: translateY(-20px); /* Naik 10px */
+  }
+  100% {
+    transform: translateY(0); /* Kembali ke posisi awal */
+  }
+}
+
+.float {
+  animation: float 2s ease-in-out infinite; /* 4 detik durasi */
+}
+
+.right-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.right-list li {
+  position: relative;
+  text-align: right;
+}
+
+.right-list li::before {
+  content: "•";
+  position: absolute;
+  right: 0;
+  transform: translateX(1rem);
+  font-size: 1.25rem;
+}
+
+/* Slider */
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 700px; /* Tentukan tinggi yang konsisten */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
