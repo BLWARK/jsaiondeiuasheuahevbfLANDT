@@ -6,7 +6,7 @@ const BannerSect = () => {
     <div className="relative w-screen h-[700px] 2xl:px-10 px-2">
       {/* Background Image */}
       <Image
-        src="/weare.png" // Ganti dengan URL gambar Anda
+        src="/weare.jpg" // Ganti dengan URL gambar Anda
         alt="Banner Background"
         fill
         priority
