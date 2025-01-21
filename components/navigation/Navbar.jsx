@@ -24,7 +24,7 @@ const Navbar = () => {
         {/* Logo */}
         <div >
           <Image
-            src="/Lnt-Logo2.png"
+            src="/LntLogo2.png"
             alt="Company Logo"
             width={90}
             height={90}
@@ -32,7 +32,7 @@ const Navbar = () => {
             className="2xl:block hidden"
           />
            <Image
-            src="/Lnt-Logo2.png"
+            src="/LntLogo2.png"
             alt="Company Logo"
             width={60}
             height={90}
