@@ -28,7 +28,7 @@ const Navbar = () => {
             alt="Company Logo"
             width={90}
             height={90}
-            priority
+            
             className="2xl:block hidden"
           />
            <Image
@@ -36,7 +36,7 @@ const Navbar = () => {
             alt="Company Logo"
             width={60}
             height={90}
-            priority
+            
             className="2xl:hidden block"
           />
         </div>
