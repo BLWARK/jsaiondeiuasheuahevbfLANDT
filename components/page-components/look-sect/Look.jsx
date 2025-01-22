@@ -4,10 +4,10 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Look = () => {
   const boxes = [
-    { title: "Strategic Business & Management", image: "/StrategicBusiness.png" },
-    { title: "Organization Development & HR Management", image: "/Dev.png" },
-    { title: "Public Affairs , Marketing & Corporate Communication", image: "/PublikAffairs.png" },
-    { title: "Tax, Legal & Auditing ", image: "/Tax.png" },
+    { title: "Strategic Business & Management", image: "/StrategicBusiness.jpg" },
+    { title: "Organization Development & HR Management", image: "/Dev.jpg" },
+    { title: "Public Affairs , Marketing & Corporate Communication", image: "/PublikAffairs.jpg" },
+    { title: "Tax, Legal & Auditing ", image: "/Tax.jpg" },
     { title: "Financial Structure & Engineering ", image: "/Financial.jpg" },
     { title: "Trainings & Coaching", image: "/Training.jpg" },
   ];
@@ -15,13 +15,13 @@ const Look = () => {
   return (
     <div className="relative w-screen 2xl:h-auto h-auto overflow-hidden pb-10">
       {/* Background Image */}
-      <Image
-        src="/weare.png" // Path file weare.png
+      {/* <Image
+        src="/weare.jpg" 
         alt="Background"
         fill
         priority
         className="absolute inset-0 z-0 object-cover"
-      />
+      /> */}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-secondary bg-opacity-100"></div>
@@ -72,9 +72,8 @@ const Look = () => {
             <Image
               src={box.image} // Path gambar dari array
               alt={box.title}
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0"
+              fill
+              className="absolute inset-0 object-cover"
             />
 
             {/* Overlay saat hover */}
