@@ -19,7 +19,7 @@ const BannerSect = () => {
         src="/weare.jpg" // Ganti dengan URL gambar Anda
         alt="Banner Background"
         fill
-        priority
+        
         className="absolute inset-0 object-cover"
       />
 
