@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <nav  className=" w-full text-white z-50">
-      <div data-aos="fade-down" className="flex items-center justify-between 2xl:px-40 px-3 2xl:my-10">
+      <div data-aos="fade-down" className="flex items-center justify-between 2xl:px-40 px-3 mt-10 2xl:my-10">
         {/* Logo */}
         <div onClick={() => router.push("/")} className="cursor-pointer">
           <Image
