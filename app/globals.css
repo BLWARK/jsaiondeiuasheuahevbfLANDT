@@ -83,3 +83,21 @@
   
 }
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  display: inline-block;
+  width: 10px;
+  height: 0.8em;
+  background-color: white;
+  animation: blink 0.7s steps(2, start) infinite;
+  margin-left: 5px;
+}
+
+
+
+

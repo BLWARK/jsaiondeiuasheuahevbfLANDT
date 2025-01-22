@@ -1,11 +1,24 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Tools = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, // Durasi animasi dalam milidetik
+      once: true, // Animasi hanya terjadi sekali
+    });
+  }, []);
+
   return (
     <div className="relative bg-main w-screen 2xl:p-40 p-6 py-10 flex flex-col justify-center items-center md:flex-row 2xl:gap-40 gap-10">
       {/* Gambar Cube (Dekorasi) */}
-      <div className="absolute top-10 left-10 w-64 h-64 z-50">
+      <div
+        className="absolute top-10 left-10 w-64 h-64 z-50"
+        data-aos="fade-right" // Animasi fade dari kanan ke kiri
+      >
         <Image
           src="/cube1.png" // Ganti dengan path file cube Anda
           alt="Cube Decoration"
@@ -14,7 +27,10 @@ const Tools = () => {
           className="float 2xl:block hidden "
         />
       </div>
-      <div className="absolute bottom-0 right-10 w-64 h-74 z-50">
+      <div
+        className="absolute bottom-0 right-10 w-64 h-74 z-50"
+        data-aos="fade-left" // Animasi fade dari kiri ke kanan
+      >
         <Image
           src="/cube2.png" // Ganti dengan path file cube Anda
           alt="Cube Decoration"
@@ -23,7 +39,10 @@ const Tools = () => {
           className="float 2xl:block hidden "
         />
       </div>
-      <div className="absolute top-10 right-10 w-24 h-24 z-50">
+      <div
+        className="absolute top-10 right-10 w-24 h-24 z-50"
+        data-aos="fade-down" // Animasi fade dari atas ke bawah
+      >
         <Image
           src="/cube1.png" // Ganti dengan path file cube Anda
           alt="Cube Decoration"
@@ -32,7 +51,10 @@ const Tools = () => {
           className="float 2xl:hidden block "
         />
       </div>
-      <div className="absolute bottom-10 right-10 w-24 h-24 z-50">
+      <div
+        className="absolute bottom-10 right-10 w-24 h-24 z-50"
+        data-aos="fade-up" // Animasi fade dari bawah ke atas
+      >
         <Image
           src="/cube1.png" // Ganti dengan path file cube Anda
           alt="Cube Decoration"
@@ -43,7 +65,10 @@ const Tools = () => {
       </div>
 
       {/* Bagian Kiri (30%) */}
-      <div className="w-full md:w-[40%] flex flex-col justify-start">
+      <div
+        className="w-full md:w-[40%] flex flex-col justify-start"
+        data-aos="fade-right" // Animasi fade dari kanan ke kiri
+      >
         <p className="uppercase text-lg font-bold text-bold mb-10 tracking-widest">
           The Tools
         </p>
@@ -53,7 +78,10 @@ const Tools = () => {
       </div>
 
       {/* Bagian Kanan (70%) */}
-      <div className="w-full md:w-[40%] grid grid-cols-1 justify-start items-center gap-8 text-white mt-10">
+      <div
+        className="w-full md:w-[40%] grid grid-cols-1 justify-start items-center gap-8 text-white mt-10"
+        data-aos="fade-left" // Animasi fade dari kiri ke kanan
+      >
         {/* Tools List */}
         <div className="space-y-8">
           <div className="border-b border-gray-300 py-2">

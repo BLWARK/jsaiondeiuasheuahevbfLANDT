@@ -1,9 +1,18 @@
-import React from "react";
+"use client"
+import React, {useEffect} from "react";
 import { FaArrowRight } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Footer = () => {
+  useEffect(() => {
+          AOS.init({
+            duration: 1200,
+            once: true,
+          });
+        }, []);
   return (
-    <footer className="bg-black text-white py-16 px-6 md:px-20">
+    <footer data-aos="fade-up" id="footer" className="bg-black text-white py-16 px-6 md:px-20">
       {/* Bagian atas */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <h1 className="text-4xl md:text-6xl font-bold font-glyphic 2xl:w-[40%] w-full">
@@ -59,18 +68,7 @@ const Footer = () => {
           <strong>L&T Business Consulting</strong>
         </p>
         <div className="flex items-center gap-8">
-          <a href="#" className="text-gray-400 hover:text-white">
-            ABOUT US
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            PRIVACY POLICY
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            CAREER
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            SITEMAP
-          </a>
+         
         </div>
       </div>
     </footer>

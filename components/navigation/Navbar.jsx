@@ -1,46 +1,66 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter(); // Untuk navigasi
+
+  useEffect(() => {
+      AOS.init({
+        duration: 1200,
+        once: true,
+      });
+    }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const menuItems = [
-    { name: "Home", id: "home" },
+    { name: "Home", id: "home", path: "/" },
     { name: "About Us", id: "about-us" },
-    { name: "Services", id: "services" },
-    { name: "Projects", id: "projects" },
-    { name: "Contact", id: "contact" },
+    { name: "Tools", id: "tools" },
+    { name: "Teams", id: "teams" },
+    { name: "Contact", id: "footer" },
   ];
 
+  const handleScrollToSection = (id, path) => {
+    if (path) {
+      router.push(path); // Navigasi ke path jika tersedia
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMenuOpen(false); // Tutup menu setelah klik
+  };
+
   return (
-    <nav className="2xl:px-40 px-4 2xl:py-10 py-4 w-full  text-white z-50">
-      <div className="flex items-center justify-between">
+    <nav  className=" w-full text-white z-50">
+      <div data-aos="fade-down" className="flex items-center justify-between 2xl:px-40 px-3 2xl:mt-10">
         {/* Logo */}
-        <div >
+        <div onClick={() => router.push("/")} className="cursor-pointer">
           <Image
             src="/LnTLogo2.png"
             alt="Company Logo"
             width={90}
             height={90}
-            
             className="2xl:block hidden"
           />
-           <Image
+          <Image
             src="/LnTLogo2.png"
             alt="Company Logo"
             width={60}
             height={90}
-            
             className="2xl:hidden block"
           />
         </div>
-        
 
         {/* Informasi Tambahan */}
         <div className="hidden md:flex flex-col text-sm space-y-1">
@@ -76,7 +96,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col md:flex-row h-full">
           {/* Bagian Kiri: Informasi Kontak */}
-          <div className="w-full md:w-1/3 bg-gray-700 p-20 text-white  flex-col justify-between 2xl:block hidden">
+          <div className="w-full md:w-1/3 bg-gray-700 p-20 text-white flex-col justify-between 2xl:block hidden">
             <div>
               <Image
                 src="/Lnt-Logo.png"
@@ -117,17 +137,9 @@ const Navbar = () => {
             </button>
             <ul className="space-y-20 text-lg font-semibold mt-12">
               {menuItems.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex justify-between items-center"
-                >
+                <li key={item.id} className="flex justify-between items-center">
                   <button
-                    onClick={() => {
-                      document
-                        .getElementById(item.id)
-                        ?.scrollIntoView({ behavior: "smooth" });
-                      setIsMenuOpen(false); // Tutup menu setelah klik
-                    }}
+                    onClick={() => handleScrollToSection(item.id, item.path)}
                     className="hover:text-main transition"
                   >
                     {item.name}

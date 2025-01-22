@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Teams = () => {
   const teamMembers = [
@@ -67,14 +69,22 @@ const Teams = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   return (
-    <div className="bg-main py-20 px-4 md:px-20">
+    <div id="teams" className="bg-main py-20 px-4 md:px-20">
       {/* Bagian Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
-        <h2 className="text-4xl md:text-6xl font-bold max-w-lg leading-tight font-glyphic">
+        <h2 data-aos="fade-right" className="text-4xl md:text-6xl font-bold max-w-lg leading-tight font-glyphic">
           The talented team behind the creative design
         </h2>
-        <p className="text-white font-bold max-w-md mt-6 md:mt-0 text-2xl">
+        <p data-aos="fade-left" className="text-white font-bold max-w-md mt-6 md:mt-0 text-2xl">
           Our dedication and commitment to excellence ensure that your business
           thrives in the ever-evolving digital realm.
         </p>
@@ -85,7 +95,7 @@ const Teams = () => {
 
       {/* Slider (Untuk Mobile) */}
       <div
-        className="slider-container block md:hidden " // Aktifkan slider hanya di mobile
+        className="slider-container block md:hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -96,10 +106,13 @@ const Teams = () => {
           }}
         >
           {teamMembers.map((member, index) => (
-            <div key={index} className="slider-item flex-shrink-0 w-full px-2 flex flex-col justify-center items-center">
-              <div className="flex flex-col items-start text-left p-6 h-[700px]  bg-secondary border-l-8 border-white border-b-8 shadow-lg">
-                {/* Gambar */}
-                <div className="w-52 h-62 overflow-hidden rounded-md mb-4 ">
+            <div
+              key={index}
+              className="slider-item flex-shrink-0 w-full px-2 flex flex-col justify-center items-center"
+              data-aos="flip-up"
+            >
+              <div className="flex flex-col items-start text-left p-6 h-[700px] bg-secondary border-l-8 border-white border-b-8 shadow-lg">
+                <div className="w-52 h-62 overflow-hidden rounded-md mb-4">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -108,8 +121,6 @@ const Teams = () => {
                     className="object-cover w-full h-full"
                   />
                 </div>
-
-                {/* Detail */}
                 <div>
                   <h3 className="text-3xl font-bold mb-2 text-main">
                     {member.name}
@@ -131,8 +142,9 @@ const Teams = () => {
           <div
             key={index}
             className="flex flex-col md:flex-col items-start text-left p-6 bg-secondary border-l-8 border-white border-b-8 shadow-lg"
+            data-aos="flip-left"
+            data-aos-delay={index * 100}
           >
-            {/* Gambar */}
             <div className="w-52 h-72 overflow-hidden rounded-md mb-4">
               <Image
                 src={member.image}
@@ -142,8 +154,6 @@ const Teams = () => {
                 className="object-cover w-full h-full"
               />
             </div>
-
-            {/* Detail */}
             <div>
               <h3 className="text-3xl font-bold mb-2 text-main">
                 {member.name}
