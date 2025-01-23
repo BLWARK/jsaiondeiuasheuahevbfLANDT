@@ -3,6 +3,7 @@ import React, {useEffect} from "react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "../../components/footer/Footer"
 
 const Training = () => {
     useEffect(() => {
@@ -12,9 +13,9 @@ const Training = () => {
         });
       }, []);
   return (
-    <div data-aos="fade-up" className="relative w-full 2xl:my-10 my-10">
+    <div data-aos="fade-up" className="relative w-full ">
       {/* Bagian Gambar */}
-      <div className="relative w-full h-[400px] 2xl:h-[700px]">
+      <div className="relative w-full h-[400px] 2xl:h-[700px] 2xl:mt-0 mt-10">
         <Image
           src="/Training.jpg" // Path file gambar background
           alt="Dev"
@@ -55,7 +56,7 @@ const Training = () => {
       </div>
 
       {/* Tombol Navigasi */}
-      <div className="w-full 2xl:p-10 p-2 relative z-10 mt-5">
+      <div className="w-full 2xl:p-10 p-2 relative z-10 mt-5 my-20">
         {" "}
         {/* Tambahkan z-10 untuk memastikan tombol di lapisan atas */}
         <div className="flex md:flex-row flex-col justify-between items-center">
@@ -87,6 +88,7 @@ const Training = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

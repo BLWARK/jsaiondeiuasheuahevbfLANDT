@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Navbar from "@/components/navigation/Navbar";
-import Footer from "@/components/footer/Footer"
+
 import "./globals.css";
 
 const poppins = Poppins({
@@ -72,7 +72,7 @@ export default function RootLayout({
         <div className="relative overflow-hidden  ">
           <Navbar />
           <main className="relative ">{children}</main>
-         <Footer/>
+        
         </div>
       </body>
     </html>
